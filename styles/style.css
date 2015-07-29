@@ -2,6 +2,10 @@ body {
 	position: static !important;
 }
 
+body > .skiptranslate:first-child {
+    display: none;
+}
+
 .filters {
 	margin-bottom: 10px;
 }
@@ -24,10 +28,6 @@ body {
 
 .clearfix {
 	clear: both;
-}
-
-.skiptranslate {
-    display: none;
 }
 
 footer {
