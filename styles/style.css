@@ -1,3 +1,7 @@
+body {
+	position: static !important;
+}
+
 .filters {
 	margin-bottom: 10px;
 }
@@ -20,6 +24,10 @@
 
 .clearfix {
 	clear: both;
+}
+
+.skiptranslate {
+    display: none;
 }
 
 footer {
