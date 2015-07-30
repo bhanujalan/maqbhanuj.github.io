@@ -110,7 +110,7 @@
 		resources = [
 			{
 				id:0,
-				name: 'NOUNS',
+				name: 'Nouns',
 				thumbnail: '',
 				url: 'http://www.edufind.com/english-grammar/nouns/',
 				type: 'text',
@@ -118,7 +118,7 @@
 			},
 			{
 				id:1,
-				name: 'VERBS',
+				name: 'Verbs',
 				thumbnail: '',
 				url: 'http://www.edufind.com/english-grammar/verbs/',
 				type: 'text',
@@ -224,7 +224,7 @@
 			
 			if(resources) {
 				resources.forEach(function(element) {
-					setUrlStatus(self.resources, element);
+					//setUrlStatus(self.resources, element);
 					ret.push(self.resources[element])
 				}, self);
 			}
@@ -233,28 +233,18 @@
 		}
 	});
 	
-	app.controller("languageController", function() {
-		this.current = "en";
-		this.translatePage = function() {
-			$.ajax({});
-		};
-	});
-	
 	function setUrlStatus(resource, index) {
 		console.log('inside');
-		// $.ajax({
-		// 	method: 'get',
-	    //     url: resource[index].url,
-	    //     success: function () {
-	    //         resource[index].active = true;
-	    //     },
-	    //     error: function (err) {
-	    //         resource[index].active = false;
-		// 		console.log(err);
-	    //     }
-	    // });
+		$.ajax({
+			method: 'get',
+	        url: resource[index].url,
+	        success: function () {
+	            resource[index].active = true;
+	        },
+	        error: function (err) {
+	            resource[index].active = false;
+				console.log(err);
+	        }
+	    });
 	}
 })();
-
-//www.googleapis.com/language/translate/v2?key=INSERT-YOUR-KEY&source=en&target=hi&q=How are you
-//http://jbhanu.github.io/
