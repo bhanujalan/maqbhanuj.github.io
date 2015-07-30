@@ -216,10 +216,15 @@
 				}, this);
 			}
 			
+			removeLabels('grade');
+			
 			return ret;
 		};
 		
 		this.setCurrent = function(id) {
+			
+			removeLabels('board');
+			
 			this.current = id;
 		};
 		
@@ -296,5 +301,11 @@
 				console.log(err);
 	        }
 	    });
+	}
+	
+	function removeLabels(filter) {
+		$('.filters > select#sl' + filter).on('change', function(){
+		    $('.filters option').attr('label', '');
+		});
 	}
 })();
