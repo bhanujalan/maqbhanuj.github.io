@@ -304,7 +304,7 @@
 	}
 	
 	function removeLabels(filter) {
-		$('.filters > select#sl' + filter).on('change', function(){
+		$('.filters > select#sl-' + filter).on('change', function(){
 		    $('.filters option').attr('label', '');
 		});
 	}
