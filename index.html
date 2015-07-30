@@ -109,5 +109,11 @@
 			console.log(xhr);
 		  }
 		});
+		
+		//remove labels added by angular on option tag for google translate to work
+		$('.filters option').attr('label', '');
+		$('.filters > select').on('change', function(){
+		    $('.filters option').attr('label', '');
+		}) 
 	</script>
 </html>
