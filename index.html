@@ -112,5 +112,13 @@
 		
 		//remove labels added by angular on option tag for google translate to work
 		$('.filters option').attr('label', '');
+		
+		$('#sl-board').on('change', function() {
+			location.hash = $(this).val();
+		});
+		
+		$('#sl-grade').on('change', function() {
+			location.hash = $('#sl-board').val() + '#' + $(this).val();
+		});
 	</script>
 </html>
