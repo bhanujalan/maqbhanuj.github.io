@@ -27,6 +27,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/data.js"></script>
 	</head>
 	<body ng-app="course" ng-controller="boardController as boardsCtrl">
 		<div class="navbar navbar-inverse">
@@ -85,9 +86,9 @@
 				  </div>
 				   <ul class="list-group" ng-hide="boardsCtrl.currentSubject !== -1">
 						<li class="list-group-item"
-							ng-repeat="subject in subjectCtrl.getSubjects(gradeCtrl.grades[gradeCtrl.current].subjects)"
-							ng-click="boardsCtrl.setCurrentSubject(subject.id)">
-							<a href="#{{boardsCtrl.current}}#{{gradeCtrl.current}}#{{boardsCtrl.currentSubject}}">{{subject.name}}</a>
+							ng-repeat="subject in subjectCtrl.getSubjects(gradeCtrl.grades[gradeCtrl.current].subjects)">
+							<a href="#{{boardsCtrl.current}}#{{gradeCtrl.current}}#{{boardsCtrl.currentSubject}}"
+                               ng-click="boardsCtrl.setCurrentSubject(subject.id)">{{subject.name}}</a>
 						</li>
 					</ul>
 					<ul class="list-group"
@@ -100,42 +101,42 @@
 				</div>
 			</section>
 		</div>
+        <footer>
+            <p>Courses India</p>
+            <div id="google_translate_element"></div>
+        </footer>
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script type="text/javascript">
+		    function googleTranslateElementInit() {
+		  	    new google.translate.TranslateElement({
+			      pageLanguage: 'en',
+			      includedLanguages: 'bn,en,gu,hi,kn,ml,mr,pa,ta,te,ur',
+			      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+			    }, 'google_translate_element');
+		    }
+
+		    $.ajax({
+		      type: "GET",
+		      url: "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",
+		      dataType: "script",
+		      success: function(){
+			    console.log('Google translate loaded');
+		      },
+		      error: function(xhr, error, exception){
+			    console.log(xhr);
+		      }
+		    });
+
+		    //remove labels added by angular on option tag for google translate to work
+		    $('.filters option').attr('label', '');
+
+		    $('#sl-board').on('change', function() {
+			    location.hash = $(this).val();
+		    });
+
+		    $('#sl-grade').on('change', function() {
+			    location.hash = $('#sl-board').val() + '#' + $(this).val();
+		    });
+        </script>
 	</body>
-	<footer>
-    	<p>Courses India</p>
-		<div id="google_translate_element"></div>
-    </footer>
-	<script type="text/javascript" src="scripts/app.js"></script>
-	<script type="text/javascript">
-		function googleTranslateElementInit() {
-		  	new google.translate.TranslateElement({
-			  pageLanguage: 'en',
-			  includedLanguages: 'bn,en,gu,hi,kn,ml,mr,pa,ta,te,ur',
-			  layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-			}, 'google_translate_element');
-		}
-		
-		$.ajax({
-		  type: "GET",
-		  url: "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",
-		  dataType: "script",
-		  success: function(){
-			console.log('Google translate loaded');
-		  },
-		  error: function(xhr, error, exception){
-			console.log(xhr);
-		  }
-		});
-		
-		//remove labels added by angular on option tag for google translate to work
-		$('.filters option').attr('label', '');
-		
-		$('#sl-board').on('change', function() {
-			location.hash = $(this).val();
-		});
-		
-		$('#sl-grade').on('change', function() {
-			location.hash = $('#sl-board').val() + '#' + $(this).val();
-		});
-	</script>
 </html>
