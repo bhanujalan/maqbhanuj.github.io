@@ -11,13 +11,10 @@
 		//check if valid for current parent
 		//-1 if above is false
 		var currentBoard = -1,
+			currentGrade = -1,
 			currentSubject = -1;
 			
-		this.boards = boards;
-		this.setCurrentSubject = function(id) {
-			this.currentSubject = id;
-		};
-		
+		//read state from localStorage
 		if(localStorage) {
 			if(localStorage.currentBoard) {
 				currentBoard = +localStorage.currentBoard;
@@ -26,9 +23,16 @@
 				}
 			}
 			
+			if(localStorage.currentGrade) {
+				currentGrade = +localStorage.currentGrade;
+				if(!((currentGrade || 0 === currentGrade) && boards[currentBoard].grades[currentGrade])) {
+					currentGrade = -1;
+				}
+			}
+			
 			if(localStorage.currentSubject) {
 				currentSubject = +localStorage.currentSubject;
-				if(!((currentSubject || 0 === currentSubject) && subjects[currentSubject])) {
+				if(!((currentSubject || 0 === currentSubject) && boards[currentBoard].grades[currentGrade].subjects[currentSubject])) {
 					currentSubject = -1;
 				}
 			}
@@ -36,73 +40,42 @@
 		
 		this.current = currentBoard;
 		this.currentSubject = currentSubject;
-	});
-	
-	app.controller("gradeController", function() {
-		var currentGrade = -1;
+		this.currentGrade = currentGrade;
+		this.boards = boards;
 		
-		this.grades = grades;
-		this.getGrades = function(grades) {
-			var ret = [];
-			
-			if(grades) {
-				grades.forEach(function(element) {
-					ret.push(this.grades[element])
-				}, this);
-			}
-			
-			removeLabels('grade');
-			
-			return ret;
+		this.setCurrentSubject = function(id) {
+			this.currentSubject = id;
 		};
 		
-		this.setCurrent = function(id) {
-			
+		this.setCurrentGrade = function(id) {
 			removeLabels('board');
-			
-			this.current = id;
+			this.currentGrade = id;	
 		};
 		
-		if(localStorage) {
-			if(localStorage.currentGrade) {
-				currentGrade = +localStorage.currentGrade;
-				if(!((currentGrade || 0 === currentGrade) && grades[currentGrade])) {
-					currentGrade = -1;
-				}
+		this.getGrades = function() {			
+			removeLabels('grade');
+			if(-1 !== this.current) {
+				return this.boards[this.current].grades;
+			} else {
+				return [];
 			}
-		}
-		
-		this.current = currentGrade;
-	});
-	
-	app.controller("subjectController", function() {
-		var self = this;
-		var currentSubject = -1;
-		
-		self.subjects = subjects;
-		
-		self.getSubjects = function(subjects) {
-			var ret = [];
-			
-			if(subjects) {
-				subjects.forEach(function(element) {
-					ret.push(self.subjects[element])
-				}, self);
-			}
-			
-			return ret;
 		};
 		
-		if(localStorage) {
-			if(localStorage.currentSubject) {
-				currentSubject = +localStorage.currentSubject;
-				if(!((currentSubject || 0 === currentSubject) && subjects[currentSubject])) {
-					currentSubject = -1;
-				}
+		this.getSubjects = function() {
+			if(-1 !== this.currentGrade) {
+				return this.boards[this.current].grades[this.currentGrade].subjects;	
+			} else {
+				return [];
+			}
+		};
+		
+		this.getResourceIds = function() {
+			if(-1 !== this.currentSubject) {
+				return this.boards[this.current].grades[this.currentGrade].subjects[this.currentSubject].resources;
+			} else {
+				return [];
 			}
 		}
-		
-		self.current = currentSubject;
 	});
 	
 	app.controller("resourceController", function() {
