@@ -48,38 +48,51 @@
 	    </div>
 		<div class="container body-content" ng-controller="gradeController as gradeCtrl" id="main-content">
 			<section class="col-sm-6 col-md-6 filters">
-				<select class="form-control" name="sl-board" id="sl-board" ng-options='board.id as board.name for board in boardsCtrl.boards' ng-model="boardsCtrl.current" ng-change="boardsCtrl.setCurrentSubject(-1);gradeCtrl.setCurrent(-1)">
+				<select class="form-control" name="sl-board" id="sl-board"
+						ng-options='board.id as board.name for board in boardsCtrl.boards'
+						ng-model="boardsCtrl.current"
+						ng-change="boardsCtrl.setCurrentSubject(-1);gradeCtrl.setCurrent(-1)">
 					<option style="display:none" value="">SELECT BOARD</option>
 				</select>
 			</section>
 			<section class="col-sm-6 col-md-6 filters">
-				<select class="form-control" name="sl-grade" id="sl-grade" ng-options='grade.id as grade.name for grade in gradeCtrl.getGrades(boardsCtrl.boards[boardsCtrl.current].grades)' ng-model="gradeCtrl.current" ng-disabled="boardsCtrl.current == -1" ng-change="boardsCtrl.setCurrentSubject(-1)">
+				<select class="form-control" name="sl-grade" id="sl-grade"
+						ng-options='grade.id as grade.name for grade in gradeCtrl.getGrades(boardsCtrl.boards[boardsCtrl.current].grades)'
+						ng-model="gradeCtrl.current"
+						ng-disabled="boardsCtrl.current == -1"
+						ng-change="boardsCtrl.setCurrentSubject(-1)">
 					<option style="display:none" value="">SELECT GRADE</option>
 				</select>
 			</section>
 			<section class="col-md-12 clearfix">
-				<div class="panel panel-default" ng-controller="subjectController as subjectCtrl" ng-hide="gradeCtrl.current == -1">
+				<div class="panel panel-default"
+					 ng-controller="subjectController as subjectCtrl"
+					 ng-hide="gradeCtrl.current == -1">
 				  <div class="panel-heading">
 					  <ul class="nav-links">
 						  <li>
 							  <a href='#{{boardsCtrl.current}}#{{gradeCtrl.current}}' ng-click="boardsCtrl.setCurrentSubject(-1)">Subjects</a>
 						  </li>
-						  <li>
+						  <li ng-hide="boardsCtrl.currentSubject === -1">
 							  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  <a href='#{{boardsCtrl.current}}#{{gradeCtrl.current}}#{{boardsCtrl.currentSubject}}' ng-disabled="true">{{subjectCtrl.subjects[boardsCtrl.currentSubject].name}}</a>
 						  </li>
 					  </ul>
 				  </div>
 				  <div class="panel-body" ng-show="!subjectCtrl.subjects[boardsCtrl.currentSubject].resources.length">
-				   <p ng-hide="gradeCtrl.grades[gradeCtrl.current].subjects.length == 0 || boardsCtrl.currentSubject !== -1">Select the subject</p>
-				   <p ng-show="gradeCtrl.grades[gradeCtrl.current].subjects.length == 0 || subjectCtrl.subjects[boardsCtrl.currentSubject].resources.length == 0">No Data</p>
+				  	<p ng-hide="gradeCtrl.grades[gradeCtrl.current].subjects.length == 0 || boardsCtrl.currentSubject !== -1">Select the subject</p>
+				  	<p ng-show="gradeCtrl.grades[gradeCtrl.current].subjects.length == 0 || subjectCtrl.subjects[boardsCtrl.currentSubject].resources.length == 0">No Data</p>
 				  </div>
 				   <ul class="list-group" ng-hide="boardsCtrl.currentSubject !== -1">
-						<li class="list-group-item" ng-repeat="subject in subjectCtrl.getSubjects(gradeCtrl.grades[gradeCtrl.current].subjects)" ng-click="boardsCtrl.setCurrentSubject(subject.id)">
+						<li class="list-group-item"
+							ng-repeat="subject in subjectCtrl.getSubjects(gradeCtrl.grades[gradeCtrl.current].subjects)"
+							ng-click="boardsCtrl.setCurrentSubject(subject.id)">
 							<a href="#{{boardsCtrl.current}}#{{gradeCtrl.current}}#{{boardsCtrl.currentSubject}}">{{subject.name}}</a>
 						</li>
 					</ul>
-					<ul class="list-group" ng-show="boardsCtrl.currentSubject !== -1" ng-controller="resourceController as resCtrl">
+					<ul class="list-group"
+						ng-show="boardsCtrl.currentSubject !== -1"
+						ng-controller="resourceController as resCtrl">
 						<li class="list-group-item" ng-repeat="resource in resCtrl.getResources(subjectCtrl.subjects[boardsCtrl.currentSubject].resources)">
 							<a href="{{resource.url}}" target="_blank" ng-class="{deadLink:!resource.active}">{{resource.name}}</a>
 						</li>
@@ -95,7 +108,11 @@
 	<script type="text/javascript" src="scripts/app.js"></script>
 	<script type="text/javascript">
 		function googleTranslateElementInit() {
-		  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,en,gu,hi,kn,ml,mr,pa,ta,te,ur', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+		  	new google.translate.TranslateElement({
+			  pageLanguage: 'en',
+			  includedLanguages: 'bn,en,gu,hi,kn,ml,mr,pa,ta,te,ur',
+			  layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+			}, 'google_translate_element');
 		}
 		
 		$.ajax({
