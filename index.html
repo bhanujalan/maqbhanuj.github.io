@@ -73,9 +73,9 @@
 						  <li>
 							  <a href='#{{boardsCtrl.current}}#{{gradeCtrl.current}}' ng-click="boardsCtrl.setCurrentSubject(-1)">Subjects</a>
 						  </li>
-						  <li ng-hide="boardsCtrl.currentSubject === -1">
+						  <li ng-hide="subject.id !== boardsCtrl.currentSubject"  ng-repeat="subject in subjectCtrl.getSubjects(gradeCtrl.grades[gradeCtrl.current].subjects)">
 							  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  <a href='#{{boardsCtrl.current}}#{{gradeCtrl.current}}#{{boardsCtrl.currentSubject}}' ng-disabled="true">{{subjectCtrl.subjects[boardsCtrl.currentSubject].name}}</a>
+							  <a href='#{{boardsCtrl.current}}#{{gradeCtrl.current}}#{{boardsCtrl.currentSubject}}' ng-disabled="true"><span>{{subject.name}}</span></a>
 						  </li>
 					  </ul>
 				  </div>
