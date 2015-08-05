@@ -1,4 +1,4 @@
-<!DOCTYPE Html>
+﻿<!DOCTYPE Html>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -27,7 +27,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-		<script type="text/javascript" src="scripts/data.js"></script>
+        <script type="text/javascript" src="scripts/data.js"></script>
+        <script type="text/javascript" src="scripts/resources.js"></script>
 	</head>
 	<body ng-app="course">
 		<div class="navbar navbar-inverse">
@@ -94,7 +95,7 @@
 						ng-show="boardsCtrl.currentSubject !== -1"
 						ng-controller="resourceController as resCtrl">
 						<li class="list-group-item" ng-repeat="resource in resCtrl.getResources(boardsCtrl.getResourceIds())">
-							<a href="{{resource.url}}" target="_blank" ng-class="{deadLink:!resource.active}">{{resource.name}}</a>
+							<a href="{{resource.url}}" target="_blank" ng-class="{deadLink:!resource.active || resource.url === '#'}">{{resource.name}}</a>
 						</li>
 					</ul>
 				</div>

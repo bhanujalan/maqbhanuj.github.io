@@ -47,6 +47,10 @@ ul.nav-links > li > span.glyphicon {
     font-size: 12px;
 }
 
+.container.body-content {
+    margin-bottom: 35px;
+}
+
 footer {
     position: fixed;
     bottom: 0px;
