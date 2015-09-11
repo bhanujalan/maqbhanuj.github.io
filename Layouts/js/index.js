@@ -110,6 +110,7 @@ function successFunction(data) {
         $(".loadingIcon").show();
         $("#jobListingContainer, #jobDescriptionContainer, #jobActionBtnContainer").hide();
     });
+
     $("#jobListings .rowEven, #jobListings .rowOdd").bind("click", function (e) {
         e.preventDefault();
         jsonData = {
@@ -121,6 +122,12 @@ function successFunction(data) {
         $(".loadingIcon").show();
         $("#jobListingContainer, #jobDescriptionContainer, #jobActionBtnContainer").hide();
     });
+
+    if ($(window).width() <= 674) {
+        $(".detailsJobDescription").after($("#jobActionBtnContainer"));
+    } else {
+        $("#jobDetailPosted").after($("#jobActionBtnContainer"));
+    }
 }
 
 // JQuery for page scrolling feature - requires jQuery Easing plugin
