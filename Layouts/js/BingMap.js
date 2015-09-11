@@ -28,9 +28,9 @@ try {
     function resetFields() {
         "use strict";
         getMap();
-        document.getElementById('input').value = '';
+        document.getElementById('directionInput').value = '';
         document.getElementById("directions").innerHTML = '';
-        watermarktext_blur(document.getElementById('input'));
+        watermarktext_blur(document.getElementById('directionInput'));
     }
 
     function ShowTurns(route) {
