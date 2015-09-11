@@ -231,6 +231,7 @@ function getLocation() {
         getRouteTo(latitude, longitude, directionInputData);
         $(".contactLoadingIcon").show();
         $("html, body").animate({ scrollTop: $(document).height() }, 750);
+        $(".contactLoadingIcon").hide();
     }
 }
 
