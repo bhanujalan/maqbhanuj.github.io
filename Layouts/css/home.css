@@ -28,6 +28,10 @@ html {
     max-width: calc(100% - 205px);
 }
 
+.detailsJobDescription{
+    margin-bottom: 15px;
+}
+
 @media(min-width:767px) {
     .navbar {
         padding: 20px 0;
@@ -284,9 +288,10 @@ of those sections to manage the look and feel of the site. */
     #jobListingsData .pager > li:first-child {
         padding: 10px 10px;
     }
-.detailsJobDescription div  p:first-child {
-    max-width: 100%;
-}
+
+    .detailsJobDescription div p:first-child {
+        max-width: 100%;
+    }
 }
 
 @media (max-width:620px) {
