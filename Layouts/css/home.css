@@ -25,11 +25,11 @@ html {
     border: 0;
 }
 
-.detailsJobDescription div p:first-child {
+.detailsJobDescription div p:first-child, .detailsJobDescription > div > div > div > div > div:first-child {
     max-width: calc(100% - 205px);
 }
 
-.detailsJobDescription{
+.detailsJobDescription {
     margin-bottom: 15px;
 }
 
@@ -290,7 +290,7 @@ of those sections to manage the look and feel of the site. */
         padding: 10px 10px;
     }
 
-    .detailsJobDescription div p:first-child {
+    .detailsJobDescription div p:first-child, .detailsJobDescription > div > div > div > div > div:first-child {
         max-width: 100%;
     }
 }
@@ -853,7 +853,6 @@ div.jumbotron {
 }
 
 #jobDescriptionContainer .c1 {
-    font: bold 20px "SEGOE UI";
     clear: both;
     float: left;
 }
@@ -1393,4 +1392,16 @@ div.jumbotron {
     color: #e74c3c !important;
     font: 16px "SEGOE UI";
     padding-bottom: 6px;
+}
+
+
+table {
+    width: 100%;
+    border: 0;
+}
+
+td {
+    float: none !important;
+    padding-right: 10px;
+    border: 0;
 }

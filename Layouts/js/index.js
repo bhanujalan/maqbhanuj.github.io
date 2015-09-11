@@ -69,7 +69,7 @@ function getJobListings(dataParams, successCallback) {
                 $(".hidden").html($(".hidden #jobListingsContent"));
             } else if ("jobTitle" === linkType) {
                 var htmlNode = $(".hidden #stepJobDetails").html();
-                htmlNode = htmlNode.replace("<table", "<div").replace("</table>", "</div>").replace("<tbody", "<div").replace("</tbody>", "</div>").replace("<tr", "<div").replace("</tr>", "</div>").replace("<td", "<div").replace("</td>", "</div>").replace("<ul", "<ol").replace("</ul>", "</ol>").replace(("MSJobs@maqconsulting.com"), "<a class='mailLink' href='mailto:MSJobs@MAQConsulting.com'>MSJobs@MAQConsulting.com</a>");
+                htmlNode = htmlNode.replace("<table", "<div").replace("</table>", "</div>").replace("<tbody", "<div").replace("</tbody>", "</div>").replace("<tr", "<div").replace("</tr>", "</div>").replace("<td", "<div").replace("</td>", "</div>").replace("<ul", "<ol").replace("</ul>", "</ol>").replace(("MSJobs@maqconsulting.com"), "<a class='mailLink' href='mailto:MSJobs@MAQConsulting.com'>MSJobs@MAQConsulting.com</a>").replace("MSJobs@maqsoftware.com", "<a class='mailLink' href='mailto:MSJobs@maqsoftware.com'>MSJobs@maqsoftware.com</a>");
                 $(".hidden").html(htmlNode);
             } else {
                 $(".hidden").html($(".hidden #jobListingsContent"));
