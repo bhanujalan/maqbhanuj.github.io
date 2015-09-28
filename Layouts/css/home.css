@@ -1,5 +1,5 @@
 ﻿@font-face {
-    font-family: 'Segoe UI';
+    font-family: 'SEGOE UI';
     src: url('../../fonts/SEGOEUI.TTF') format('truetype');
 }
 /*Validation Error: 0*/
@@ -725,7 +725,7 @@ div.jumbotron {
 
 .titleMessageDiv {
     color: #474a48;
-    font-family: "segoe UI";
+    font-family: "SEGOE UI";
     font-size: 14px;
     font-weight: normal !important;
     float: left;
@@ -735,7 +735,7 @@ div.jumbotron {
 
 #directions {
     color: #474a48 !important;
-    font-family: "segoe UI", Tahoma, Verdana, Sans-Serif;
+    font-family: "SEGOE UI", Tahoma, Verdana, Sans-Serif;
     font-size: 14px;
     margin-top: 10px;
     position: relative;
