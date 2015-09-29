@@ -55,7 +55,11 @@ function setWaterMarkText() {
 }
 function getJobListings(dataParams, successCallback) {
     "use strict";
-    catsoneUrl = dataParams.getListings;
+    if (-1 === dataParams.getListings.indexOf('http://maqconsulting.catsone.com/careers/undefined')) {
+        catsoneUrl = dataParams.getListings;
+    } else {
+        catsoneUrl = 'http://maqconsulting.catsone.com/careers/index.php?m=portal&a=listings&sort=posted&sortDir=desc&page=' + $('.active.pageSelector > a:nth(0)').text();
+    }
     linkType = dataParams.linkType;
     $.ajax({
         url: 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + catsoneUrl + '"') + '&format=html',
