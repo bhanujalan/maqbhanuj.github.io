@@ -8,7 +8,7 @@ var originalInput,
 
 function scrollToID(id, speed) {
     "use strict";
-    var offSet = 88,
+    var offSet = 70,
         targetOffset = $(id).offset().top - offSet,
         mainNav = $('#main-nav');
     $('html,body').animate({ scrollTop: targetOffset }, speed);
@@ -85,6 +85,7 @@ function getJobListings(dataParams, successCallback) {
 
 function successFunction(data) {
     "use strict";
+    var iCount, title, value, html = '<ul>';
     $(".hidden").remove();
     $("#dumpData").html(data);
     $("#jobListingContainer, #jobDescriptionContainer, #jobActionBtnContainer").hide();
@@ -100,6 +101,15 @@ function successFunction(data) {
         sendToFriendTemplate = sendToFriendTemplate.replace("{0}", $("#dumpData #jobTitle").html());
     }
 
+    for (iCount = 0; iCount < $('.detailsJobDescription .c3:nth(0) tbody tr').length; iCount++) {
+        title = $('.detailsJobDescription .c3:nth(0) tbody tr:nth(' + iCount + ') td:nth(0) strong').text();
+        value = $('.detailsJobDescription .c3:nth(0) tbody tr:nth(' + iCount + ') td:nth(1)').text();
+        if (title && value) {
+            html += '<li><span class="jobHead">' + title + '</span> : <span> ' + value + '</span></li>';
+        }
+    }
+    html += '</ul>';
+    $('.detailsJobDescription .c3:nth(0)').html(html);
     $(".pageSelector").bind("click", function (e) {
         e.preventDefault();
         jsonData = {
@@ -144,6 +154,7 @@ $(function () {
     $('a.page-scroll').on('click', function (event) {
         event.preventDefault();
         var sectionID = $(this).attr("href");
+        $('#siteNavigationContainer').removeClass('in');
         scrollToID(sectionID, 750);
     });
 

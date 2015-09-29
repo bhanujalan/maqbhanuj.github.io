@@ -76,7 +76,9 @@ of those sections to manage the look and feel of the site. */
 .navbar-default {
     background-color: #fff;
 }
-
+#logoContainer .navbar-brand.page-scroll {
+    padding-top: 20px;
+}
 @media(max-width: 991px) {
     #companyLogo {
         height: 20px;
@@ -147,19 +149,19 @@ of those sections to manage the look and feel of the site. */
     }
 
     #page-top #hireTalentContainer {
-        padding: 67px 36px;
+        padding: 35px 5px;
     }
 
     #page-top #benefitsSectionContainer {
-        padding: 67px 35px 73px 35px;
+        padding: 35px 5px;
     }
 
     #page-top #contactInfo {
-        padding: 70px 20px;
+        padding: 35px 5px;
     }
 
     #page-top #mapContainer {
-        padding: 69px 35px;
+        padding: 35px 5px;
     }
 
     #talentEnquirySection {
@@ -179,11 +181,48 @@ of those sections to manage the look and feel of the site. */
     #jobDetails #jobActionBtnContainer #backToJobsBtn {
         font: 14px "SEGOE UI";
     }
+
+    .container #logoContainer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .navbar .container, .row .container {
+        padding: 0;
+    }
+
+    #siteNavigation .page-scroll{
+        margin-left: 15px;
+    }
+    .navbar-brand.page-scroll{
+        padding-left: 20px;
+    }
+    
+    #logoContainer .navbar-brand.page-scroll {
+        padding-top: 15px;
+    }
+
+    #siteNavigationContainer #siteNavigation .active .page-scroll{
+        border-bottom: none;
+    }
+    
+    #siteNavigationContainer {
+        border-bottom: 5px solid #e74c3c;
+    }
+    
+    #findJobsRow .container #jobDescriptionContainer {
+        padding: 52px 15px;
+    }
+
+    #contactInfo div {
+        width: 100%;
+        padding-right: 10px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #benefitsSectionContainer #benefitsCardsRow .benefitsCardData {
-        font: normal 12px "SEGOE UI";
+        font: normal 16px "SEGOE UI";
         line-height: 24px;
     }
 
@@ -205,16 +244,24 @@ of those sections to manage the look and feel of the site. */
     #mapContainer #directionBtnContainer #show, #mapContainer #directionBtnContainer #clear {
         font: normal 12px "SEGOE UI", sans-serif;
     }
+
+    #logoContainer .navbar-brand.page-scroll {
+        padding-top: 24px;
+    }
+
+    #benefitsSectionContainer #benefitsTextRow .benefitsRowData, #benefitsSectionContainer #benefitsCardsRow .benefitsCardData {
+        font-size: 13px;
+    }
 }
 
 @media (max-width:628px) {
-    #benefitsSectionContainer #benefitsCardsRow .benefitsCardData {
-        font: normal 12px "SEGOE UI";
-        line-height: 24px;
+    #benefitsCardsRow .card{
+        height: 100%;
+        padding-bottom: 45px;
     }
 
-    .card .learnMoreLink {
-        font: 600 14px "SEGOE UI";
+    #introductionSection div.jumbotron{
+        background-size: auto 100%;
     }
 }
 
@@ -231,17 +278,8 @@ of those sections to manage the look and feel of the site. */
 }
 
 @media (max-width:433px) {
-    #benefitsSectionContainer #benefitsCardsRow .benefitsCardData {
-        font: normal 10px "SEGOE UI";
-        line-height: 16px;
-    }
-
-    #benefitsCardsRow .card .learnMoreLink {
-        font: 600 10px "SEGOE UI";
-    }
-
-    #benefitsSectionContainer #benefitsCardsRow .benefitsCardTitle {
-        font: bold 12px "SEGOE UI";
+    #expertiseContainer .media {
+        display: none;
     }
 }
 
@@ -352,6 +390,9 @@ of those sections to manage the look and feel of the site. */
     #jobListingContainer #jobListingsData .pager > li:first-child {
         padding: 5px 5px;
     }
+    #page-top .sectionHeaderContainer, .sectionHeaderContainer .sectionHeader {
+        height: 60px;
+    }
 }
 
 @media (max-width:368px) {
@@ -427,6 +468,7 @@ div.jumbotron {
     background-color: #fff;
     color: #e74c3c;
     border-bottom: 5px solid #e74c3c;
+    padding-bottom: 8px;
 }
 
 
@@ -818,11 +860,13 @@ div.jumbotron {
     background-color: rgba(0,0,0,0);
     border: 2px solid #faf7f3;
     margin-bottom: 7px;
-    float: right;
     font: 16px "SEGOE UI";
     padding-bottom: 5px;
 }
 
+#jobDetails > div:nth-child(1) {
+    padding-left: 0;
+}
 
 .mailLink {
     color: #e74c3c;
@@ -876,6 +920,10 @@ div.jumbotron {
     clear: both;
     position: relative;
     top: -114px;
+}
+
+.detailsJobDescription ul {
+    padding-left: 15px;
 }
 
 #jobDescriptionContainer .c2 {
@@ -1140,9 +1188,9 @@ div.jumbotron {
 }
 
 #logoContainer {
-    margin-left: 25px;
+    margin-left: 20px;
     margin-top: 5px;
-    height: 73px;
+    height: 60px;
 }
 
 #siteNavigationContainer {
@@ -1157,7 +1205,7 @@ div.jumbotron {
 }
 
 .navbar {
-    height: 88px;
+    height: 70px;
 }
 
 #siteNavigation {
@@ -1192,10 +1240,16 @@ div.jumbotron {
 
 #jobListingsData .pagination .pagerDisable {
     padding: 10px 43px;
+    border-color: gray;
+    cursor: default;
+    color: gray;
+}
+
+#jobListingsData .pagination .pagerDisable:hover {
+    background-color: transparent;
 }
 
 #jobDescriptionContainer .detailsJobDescription p {
-    letter-spacing: -0.02em;
     text-align: justify;
     text-justify: inter-word;
     font: normal 16px "SEGOE UI";
@@ -1231,6 +1285,7 @@ div.jumbotron {
     line-height: 23px;
     text-align: justify;
     text-justify: inter-word;
+    list-style-type: disc;
 }
 
 .mailLink:hover {
@@ -1416,4 +1471,10 @@ td {
     float: none !important;
     padding-right: 10px;
     border: 0;
+}
+
+.jobHead {
+    font-weight: bold;
+    min-width: 80px;
+    display: inline-block;
 }
