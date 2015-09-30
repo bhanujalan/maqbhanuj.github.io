@@ -17,6 +17,7 @@ html {
 .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
+    position: relative;
 }
 
 .hide {
@@ -35,6 +36,18 @@ html {
 
 .detailsJobDescription {
     margin-bottom: 15px;
+}
+
+.contractServices{
+    margin-top: -60px;
+}
+
+.talentEnquiries{
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    border-top: 3px solid #e74c3c;
+    padding-top: 50px;
 }
 
 @media(min-width:767px) {
@@ -94,6 +107,15 @@ of those sections to manage the look and feel of the site. */
 
     #footerSection #footerText {
         padding-left: 0;
+    }
+
+    #hireTalentContainer .contractServices{
+        margin-top: -120px;
+    }
+
+    #hireTalentContainer .talentEnquiries{
+        bottom: 30px;
+        padding-top: 110px;
     }
 }
 
@@ -211,12 +233,32 @@ of those sections to manage the look and feel of the site. */
     }
     
     #findJobsRow .container #jobDescriptionContainer {
-        padding: 52px 15px;
+        padding: 25px 15px;
     }
 
     #contactInfo div {
         width: 100%;
         padding-right: 10px;
+    }
+
+    #jobListingContainer #searchJobListing {
+        width: 100%;
+    }
+
+    #hireTalentContainer .contractServices{
+        margin-top: 0;
+    }
+
+    #hireTalentContainer .talentEnquiries{
+        position: relative;
+        border-top: none;
+        padding-top: 0;
+        padding-bottom: 10px;
+        margin-top: 34px;
+    }
+
+    #introductionSection div.jumbotron{
+        background-size: auto 100%;
     }
 }
 
@@ -259,15 +301,15 @@ of those sections to manage the look and feel of the site. */
         height: 100%;
         padding-bottom: 45px;
     }
-
-    #introductionSection div.jumbotron{
-        background-size: auto 100%;
-    }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
     #hireTalentContainer #expertiseContainer .designSection {
         margin-top: 40px;
+    }
+
+    .contractServices{
+        margin-top: -100px;
     }
 }
 
@@ -414,18 +456,9 @@ of those sections to manage the look and feel of the site. */
     }
 }
 
-/*@media (min-width:992px) and (max-width:1199px) {
-    #mapContainer #directionBtnContainer #show {
-    width:134px;
-    }
-    #mapContainer #directionBtnContainer #clear {
-    width:120px;
-    }
-}*/
-
 #bannerContainer {
     height: 100%;
-    padding: 255px 0;
+    padding: 125px 0;
 }
 
 
@@ -544,7 +577,6 @@ div.jumbotron {
 
 #contactInfo .contactRowContent {
     font: 15px "SEGOE UI", sans-serif;
-    margin-bottom: 15px;
     line-height: 23px;
     letter-spacing: -0.02em;
     text-align: justify;
@@ -557,6 +589,11 @@ div.jumbotron {
 
 #contactSection .socialContent .contactRowContent {
     line-height: 20px;
+    margin-bottom: 15px;
+}
+
+.contactRowContent > img{
+    margin-right: 10px;
 }
 
 #contactSection .socialContent {
@@ -577,31 +614,26 @@ div.jumbotron {
 }
 
     #socialIconContainer span {
-        border: 2px solid #fff;
         display: block;
         width: 44px;
         float: left;
         margin-right: 15px;
         text-align: center;
         height: 42px;
-        padding: 6px 0;
         cursor: pointer;
     }
 
     #socialIconContainer #twitterLink span:hover {
         background-color: #4099FF;
-        border: 2px solid #4099FF;
     }
 
     #socialIconContainer #linkedInLink span:hover {
         background-color: #0077B5;
         margin-right: 0;
-        border: 2px solid #0077B5;
     }
 
     #socialIconContainer #facebookLink span:hover {
         background-color: #3B5998;
-        border: 2px solid #3B5998;
     }
 
     #socialIconContainer #linkedInLink span {
@@ -818,10 +850,6 @@ div.jumbotron {
 }
 
 .loadingIcon, .contactLoadingIcon {
-    /*background: url("../images/loading.gif") no-repeat center;
-    background-size: 60px 60px;
-    width: 60px;
-    height: 60px;*/
     padding: 200px 15px;
     margin: 0 auto;
     min-height: 976px;
@@ -866,6 +894,7 @@ div.jumbotron {
 
 #jobDetails > div:nth-child(1) {
     padding-left: 0;
+    padding-bottom: 20px;
 }
 
 .mailLink {
@@ -898,6 +927,7 @@ div.jumbotron {
     text-transform: uppercase;
     font: bold 30px "SEGOE UI";
     color: #faf7f3;
+    line-height: 25px;
 }
 
 #jobDescriptionContainer .c1 {
@@ -914,12 +944,6 @@ div.jumbotron {
 #jobDescriptionContainer strong {
     font: bold 20px "SEGOE UI";
     text-transform: uppercase;
-}
-
-.detailsJobDescription {
-    clear: both;
-    position: relative;
-    top: -114px;
 }
 
 .detailsJobDescription ul {
@@ -1064,7 +1088,7 @@ div.jumbotron {
 }
 
 #jobDescriptionContainer {
-    padding: 52px 0;
+    padding: 25px 0;
     padding-bottom: 0;
     font: 16px "SEGOE UI";
 }
@@ -1165,7 +1189,7 @@ div.jumbotron {
 
 #searchJobListing {
     height: 41px;
-    width: 100%;
+    width: 108%;
     padding: 0 18px;
     margin-bottom: 26px;
     color: #333;

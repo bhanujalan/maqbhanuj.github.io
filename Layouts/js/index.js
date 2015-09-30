@@ -114,6 +114,21 @@ function successFunction(data) {
     }
     html += '</ul>';
     $('.detailsJobDescription .c3:nth(0)').html(html);
+    if (0 !== $('#jobActionBtnContainer > div:nth(2)').length) {
+        $('#jobDetails').prepend($('#jobActionBtnContainer > div:nth(2)'));
+    } else {
+        $('#jobDetails').prepend("<div class='col-lg-12 col-xs-12'><input type='button' value='BACK TO JOBS' class='titleMessage buttonStyle' id='backToJobsBtn' /></div>");
+        $("#backToJobsBtn").bind("click", function () {
+            // Get Job listings
+            jsonData = {
+                getListings: "http://maqconsulting.catsone.com/careers/index.php?m=portal&portalID=850"
+            };
+
+            getJobListings(jsonData, successFunction);
+            $(".loadingIcon").show();
+            $("#jobListingContainer, #jobDescriptionContainer, #jobActionBtnContainer").hide();
+        });
+    }
     $(".pageSelector").bind("click", function (e) {
         e.preventDefault();
         jsonData = {
