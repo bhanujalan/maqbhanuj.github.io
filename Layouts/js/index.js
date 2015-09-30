@@ -105,15 +105,16 @@ function successFunction(data) {
         sendToFriendTemplate = sendToFriendTemplate.replace("{0}", $("#dumpData #jobTitle").html());
     }
 
-    for (iCount = 0; iCount < $('.detailsJobDescription .c3:nth(0) tbody tr').length; iCount++) {
-        title = $('.detailsJobDescription .c3:nth(0) tbody tr:nth(' + iCount + ') td:nth(0) strong').text();
-        value = $('.detailsJobDescription .c3:nth(0) tbody tr:nth(' + iCount + ') td:nth(1)').text();
+    for (iCount = 0; iCount < $('.detailsJobDescription table:nth(0) tbody tr').length; iCount++) {
+        title = $('.detailsJobDescription table:nth(0) tbody tr:nth(' + iCount + ') td:nth(0) strong').text();
+        value = $('.detailsJobDescription table:nth(0) tbody tr:nth(' + iCount + ') td:nth(1)').text();
         if (title && value) {
             html += '<li><span class="jobHead">' + title + '</span> : <span> ' + value + '</span></li>';
         }
     }
     html += '</ul>';
-    $('.detailsJobDescription .c3:nth(0)').html(html);
+    $('.detailsJobDescription table:nth(0)').parent().append(html);
+    $('.detailsJobDescription table:nth(0)').remove();
     if (0 !== $('#jobActionBtnContainer > div:nth(2)').length) {
         $('#jobDetails').prepend($('#jobActionBtnContainer > div:nth(2)'));
     } else {

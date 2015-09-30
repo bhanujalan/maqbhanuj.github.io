@@ -17,6 +17,9 @@ html {
 .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
+}
+
+#hireTalentContainer .row {
     position: relative;
 }
 
@@ -35,7 +38,7 @@ html {
 }
 
 .detailsJobDescription {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .contractServices{
@@ -1091,6 +1094,7 @@ div.jumbotron {
     padding: 25px 0;
     padding-bottom: 0;
     font: 16px "SEGOE UI";
+    padding-top: 33px;
 }
 
 #talentEnquiryList {
