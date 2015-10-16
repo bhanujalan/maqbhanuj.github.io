@@ -69,6 +69,7 @@ function getJobListings(dataParams, successCallback) {
         success: function (data) {
             data = data.results[0].replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '').replace('src=\"/images/portal/rssIcon.png\"', '').replace('src=\"/images/dialogPointer.gif\"', '').replace('src=\"/images/datagrid/sortDesc.gif\"', '').replace('src=\"/images/icons/magnifier_medium.png\"', '').replace('src=\"/images/v3/poweredByCATS.png\"', '').replace('magnifier_medium.png ', '');
             data = data.replace('http://www.maqconsulting.com/Static/Images/Inc500.png', ' ').replace('http://www.maqconsulting.com/Static/Images/header_doubleSquareEnding.png', ' ').replace(new RegExp('http://www.maqconsulting.com/Static/Images/facebook_large.png', 'g'), ' ').replace(new RegExp('http://maqconsulting.com/Static/Images/MAQConsulting_logo.png', 'g'), ' ').replace(new RegExp('http://www.maqconsulting.com/Static/Images/linkedin_large.png', 'g'), ' ').replace(new RegExp('http://www.maqconsulting.com/Static/Images/twitter_large.png', 'g'), ' ').replace(new RegExp('images/icons/magnifier_medium.png', 'g'), '');
+            data = data.replace(new RegExp('http://www.maqconsulting.com/Static/Images/MAQConsulting_logo.png', 'g'), ' ');
             $("#jobListingContainer").append('<div class="hidden">' + data + '</div>');
             if ("pagination" === linkType) {
                 $(".hidden").html($(".hidden #jobListingsContent"));
