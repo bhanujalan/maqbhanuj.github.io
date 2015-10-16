@@ -848,8 +848,7 @@ div.jumbotron {
 
 /*Find Jobs Section*/
 #findJobsRow {
-    background-color: #333;
-    color: #fff;
+    color: #333;
 }
 
 .loadingIcon, .contactLoadingIcon {
@@ -885,14 +884,15 @@ div.jumbotron {
 }
 
 #applyJobBtn, #sendToFriendBtn, #backToJobsBtn, #resetSearch {
-    color: #faf7f3;
+    color: #333;
     width: 164px;
     height: 42px;
     background-color: rgba(0,0,0,0);
-    border: 2px solid #faf7f3;
+    border: 2px solid #333;
     margin-bottom: 7px;
     font: 16px "SEGOE UI";
     padding-bottom: 5px;
+    background-color: #EAEAEA;
 }
 
 #jobDetails > div:nth-child(1) {
@@ -900,7 +900,7 @@ div.jumbotron {
     padding-bottom: 20px;
 }
 
-.mailLink {
+.mailLink, .detailsJobDescription a {
     color: #e74c3c;
 }
 
@@ -996,14 +996,15 @@ div.jumbotron {
 #jobListingsData .pagination .pager > li > a {
     border: 0;
     background: none;
-    color: #fff;
+    color: #333;
     text-transform: uppercase;
 }
 
 .pagerDisable, .pager > li:last-child, .pager > li:first-child {
-    border: 2px solid #faf7f3;
+    border: 2px solid #333;
     padding: 10px 30px;
     text-transform: uppercase;
+    background-color: #EAEAEA;
 }
 
     .pager > li:last-child:hover, .pager > li:first-child:hover {
@@ -1042,7 +1043,7 @@ div.jumbotron {
 }
 
 #jobListings .jobTitle {
-    color: #fff;
+    color: #333;
     text-decoration: none;
 }
 
@@ -1254,7 +1255,7 @@ div.jumbotron {
 
 #jobListings > tbody > tr:first-child > th > a {
     font: bold 16px "SEGOE UI";
-    color: #f0f0f0;
+    color: #333;
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -1500,7 +1501,11 @@ td {
     padding-right: 10px;
     border: 0;
 }
-
+ 
+#jobListings a, #jobListings a:hover, #jobActionBtnContainer a, #jobActionBtnContainer a:hover {
+    color: #333;
+    text-decoration:initial;
+} 
 .jobHead {
     font-weight: bold;
     min-width: 80px;
