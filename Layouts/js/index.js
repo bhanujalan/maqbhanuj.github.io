@@ -68,6 +68,7 @@ function getJobListings(dataParams, successCallback) {
         dataType: 'jsonp',
         success: function (data) {
             data = data.results[0].replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '').replace('src=\"/images/portal/rssIcon.png\"', '').replace('src=\"/images/dialogPointer.gif\"', '').replace('src=\"/images/datagrid/sortDesc.gif\"', '').replace('src=\"/images/icons/magnifier_medium.png\"', '').replace('src=\"/images/v3/poweredByCATS.png\"', '').replace('magnifier_medium.png ', '');
+            data = data.replace('http://www.maqconsulting.com/Static/Images/Inc500.png', ' ').replace('http://www.maqconsulting.com/Static/Images/header_doubleSquareEnding.png', ' ').replace('http://www.maqconsulting.com/Static/Images/linkedin_large.png', ' ').replace('http://maqconsulting.com/Static/Images/twitter_large.png', '').replace('facebook_large.png', ' ').replace('MAQConsulting_logo.png', ' ');
             $("#jobListingContainer").append('<div class="hidden">' + data + '</div>');
             if ("pagination" === linkType) {
                 $(".hidden").html($(".hidden #jobListingsContent"));
