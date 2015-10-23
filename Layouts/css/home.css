@@ -338,7 +338,7 @@ of those sections to manage the look and feel of the site. */
     }
 }
 
-@media (max-width:371px) {
+@media (max-width:418px) {
     #hireTalentBtn {
         margin-bottom: 20px;
     }
@@ -511,6 +511,26 @@ div.jumbotron {
     background-size: 100% 100%;
 }
 
+@media (max-height: 659px) {
+    #introductionSection div.jumbotron{
+        background-size: 100% 120%;
+    }
+}
+@media (max-height: 545px) {
+    #introductionSection div.jumbotron{
+        background-size: 100% 140%;
+    }
+}
+@media (max-height: 460px) {
+    #introductionSection div.jumbotron{
+        background-size: 100% 170%;
+    }
+}
+@media (max-height: 659px) and  (max-width: 991px){
+    #introductionSection div.jumbotron{
+        background-size: auto 100%;
+    }
+}
 .container #bannerContainer.jumbotron, .container-fluid #bannerContainer.jumbotron {
     border-radius: 0;
 }
