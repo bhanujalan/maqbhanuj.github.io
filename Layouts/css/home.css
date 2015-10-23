@@ -1052,7 +1052,6 @@ div.jumbotron {
 }
 
     .pager > li:last-child:hover, .pager > li:first-child:hover {
-        border: 2px solid #e74c3c;
         background-color: #e74c3c;
         color: #fff;
     }
