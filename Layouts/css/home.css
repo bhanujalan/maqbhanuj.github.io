@@ -41,6 +41,11 @@ html {
     margin-bottom: 25px;
 }
 
+.detailsJobDescription ul:last-child {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
 .contractServices{
     margin-top: -60px;
 }
@@ -49,8 +54,15 @@ html {
     position: absolute;
     bottom: 30px;
     right: 0;
+}
+
+.talentEnquirySection{
     border-top: 3px solid #e74c3c;
     padding-top: 50px;
+}
+
+.navbar{
+    box-shadow: 1px 1px 1px #ccc;
 }
 
 @media(min-width:767px) {
@@ -118,6 +130,9 @@ of those sections to manage the look and feel of the site. */
 
     #hireTalentContainer .talentEnquiries{
         bottom: 30px;
+    }
+
+    .talentEnquirySection{
         padding-top: 110px;
     }
 }
@@ -254,10 +269,13 @@ of those sections to manage the look and feel of the site. */
 
     #hireTalentContainer .talentEnquiries{
         position: relative;
-        border-top: none;
-        padding-top: 0;
         padding-bottom: 10px;
         margin-top: 34px;
+    }
+
+    .talentEnquirySection{
+        border-top: none;
+        padding-top: 0;
     }
 
     #introductionSection div.jumbotron{
@@ -296,6 +314,10 @@ of those sections to manage the look and feel of the site. */
 
     #benefitsSectionContainer #benefitsTextRow .benefitsRowData, #benefitsSectionContainer #benefitsCardsRow .benefitsCardData {
         font-size: 13px;
+    }
+
+    #introductionSection div.jumbotron{
+        background-size: auto 100%;
     }
 }
 
@@ -397,7 +419,7 @@ of those sections to manage the look and feel of the site. */
     }
 
     #jobListingContainer #jobListings tr td:first-child {
-        border-top: 1px solid #faf7f3;
+        border-top: 1px solid #333;
         font-weight: bold;
     }
 
@@ -414,12 +436,12 @@ of those sections to manage the look and feel of the site. */
     }
 
     #jobListings > tbody > tr:last-child > td:last-child {
-        border-bottom: 1px solid #faf7f3;
+        border-bottom: 1px solid #333;
     }
 
     #jobListings > tbody > tr > td {
-        border-right: 1px solid #faf7f3;
-        border-left: 1px solid #faf7f3;
+        border-right: 1px solid #333;
+        border-left: 1px solid #333;
         padding: 1px 10px;
     }
 }
@@ -867,15 +889,15 @@ div.jumbotron {
 
 #jobDescriptionTitle {
     font: bold 30px "SEGOE UI";
-    color: #faf7f3;
-    border-bottom: 2px solid #faf7f3;
+    color: #333;
+    border-bottom: 2px solid #333;
     padding-bottom: 20px;
     margin-bottom: 30px;
 }
 
 .jobTitleAttribute {
     font: bold 18px "SEGOE UI";
-    color: #faf7f3;
+    color: #333;
     margin-bottom: 12px;
 }
 
@@ -888,7 +910,7 @@ div.jumbotron {
     width: 164px;
     height: 42px;
     background-color: rgba(0,0,0,0);
-    border: 2px solid #333;
+    border: 1px solid #ccc;
     margin-bottom: 7px;
     font: 16px "SEGOE UI";
     padding-bottom: 5px;
@@ -912,6 +934,7 @@ div.jumbotron {
 #applyJobBtn:hover, #sendToFriendBtn:hover, #backToJobsBtn:hover, #resetSearch:hover {
     background-color: #e74c3c;
     border: 2px solid #e74c3c;
+    color: #fff;
 }
 
 #companyDescription {
@@ -924,12 +947,12 @@ div.jumbotron {
 }
 
 #jobTitle {
-    border-bottom: 1px solid #faf7f3;
+    border-bottom: 1px solid #333;
     padding-bottom: 11px;
     margin-bottom: 25px;
     text-transform: uppercase;
     font: bold 30px "SEGOE UI";
-    color: #faf7f3;
+    color: #333;
     line-height: 25px;
 }
 
@@ -996,20 +1019,22 @@ div.jumbotron {
 #jobListingsData .pagination .pager > li > a {
     border: 0;
     background: none;
-    color: #333;
     text-transform: uppercase;
+    color: inherit;
 }
 
 .pagerDisable, .pager > li:last-child, .pager > li:first-child {
-    border: 2px solid #333;
+    border: 1px solid #ccc;
     padding: 10px 30px;
     text-transform: uppercase;
     background-color: #EAEAEA;
+    color: #333;
 }
 
     .pager > li:last-child:hover, .pager > li:first-child:hover {
         border: 2px solid #e74c3c;
         background-color: #e74c3c;
+        color: #fff;
     }
 
 #jobListingsData .pagination .pager .active > a {
@@ -1022,7 +1047,7 @@ div.jumbotron {
 
 .sortingHeader > a, .sortingHeader > a:hover {
     cursor: default;
-    color: #faf7f3;
+    color: #333;
     text-decoration: none;
 }
 
@@ -1043,12 +1068,13 @@ div.jumbotron {
 }
 
 #jobListings .jobTitle {
-    color: #333;
+    color: inherit;
     text-decoration: none;
 }
 
 #jobListings .rowEven:hover, #jobListings .rowOdd:hover {
     background-color: #e74c3c;
+    color: #fff;
 }
 
 #jobListings {
@@ -1503,8 +1529,8 @@ td {
 }
  
 #jobListings a, #jobListings a:hover, #jobActionBtnContainer a, #jobActionBtnContainer a:hover {
-    color: #333;
-    text-decoration:initial;
+    color: inherit;
+    text-decoration: none;
 } 
 .jobHead {
     font-weight: bold;
